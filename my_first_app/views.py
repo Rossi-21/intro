@@ -9,7 +9,12 @@ def root(request):
     return redirect("/blogs")
 
 def index(request):
-    return HttpResponse("Hello Blog!")
+    context = {
+        "name": "Ross",
+        "favorite_color": "red",
+        "pets" : ["Zinnia", "Lastelle", "Shadow"]
+    }
+    return render(request, "index.html", context)
 
 def new (request):
     return HttpResponse("Form to create a new blog")
